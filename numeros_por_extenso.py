@@ -16,11 +16,13 @@ def extenso(numero):
     if numero < 1000:
         centena = numero // 100
         resto = numero % 100
+        if centena == 1 and resto == 0:
+            return "cem"
         texto = centenas[centena]
         if resto != 0:
             texto += f" e {extenso(resto)}"
         return texto
 
-for i in range(100, 201):
+for i in range(900, 1000):
     texto = extenso(i)
     print(texto, i, len(texto))
